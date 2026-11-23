@@ -83,7 +83,7 @@
             <div class="bg-gradient-to-r from-brand-orange to-orange-400 rounded-2xl p-5 text-white shadow-md relative overflow-hidden">
                 <div class="relative z-10">
                     <span class="inline-block bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-2">원스톱 건강검진</span>
-                    <h2 class="text-lg font-bold leading-snug mb-1">접수부터, 검사까지 한 층에서 끝나는 건강검진!</h2>
+                    <h2 class="text-lg font-bold leading-snug mb-1"><span style="font-size: calc(1em - 1pt)">접수부터, 검사까지</span> 한 층에서 끝나는 건강검진!</h2>
                     <p class="text-orange-100 text-sm font-normal">양정분 검진센터에서 당신의 건강을 지키세요.</p>
                 </div>
                 <i class="fa-solid fa-heart-pulse absolute -right-3 -bottom-3 text-white/10 text-8xl"></i>
@@ -204,7 +204,7 @@
                         <i class="fa-solid fa-pills text-brand-orange mt-1 text-base"></i>
                      <div>
 
-<p class="text-base text-gray-800 font-medium">평소 복용 중인 약이 있다면 담당의와 상담하세요.</p>
+<p class="text-base text-gray-800 font-medium">평소 <strong>복용 중인 약</strong>이 있다면 담당의와 상담하세요.</p>
 
 <p class="text-sm text-brand-orange font-medium mt-0.5">
     ※ <strong><u>혈압약</strong></u>
@@ -222,7 +222,7 @@
                     <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
                         <i class="fa-solid fa-gem text-brand-orange mt-1 text-base"></i>
                         <div>
-                            <p class="text-base text-gray-800 font-medium">탈의 시 목걸이는 빼 주세요.</p>
+                            <p class="text-base text-gray-800 font-medium">탈의 시 <strong>목걸이</strong>는 빼 주세요.</p>
                             <p class="text-sm text-brand-orange font-medium mt-0.5">※ 분실 시 책임지지 않습니다.</p>
                         </div>
                     </div>
@@ -2502,7 +2502,8 @@ function toggleBloodTest(id, button) {
            class="mt-2 inline-block text-sm font-semibold text-orange-800 underline">국민건강보험공단에서 대상 확인</a>
         <div class="mt-4 rounded-xl border border-orange-200 bg-orange-50 px-3 py-3 text-sm leading-relaxed text-gray-800">
             <h3 class="font-bold text-gray-900">작년에 국가건강검진을 못 받으셨나요?</h3>
-            <p class="mt-1">작년 검진 대상이었지만 받지 못하셨다면, 국민건강보험공단에 <strong>전년도 미수검자 추가 신청</strong>을 한 뒤 올해 검진을 받으실 수 있습니다. 신청 가능한 항목은 공단 고객센터(<a href="tel:15771000" class="font-semibold text-orange-800 underline">1577-1000</a>)에서 확인해 주세요.</p>
+            <p class="mt-1">작년 국가건강검진 대상이었지만 받지 못하셨다면, <strong>전년도 미수검자 추가 신청</strong>을 통해 올해 검진을 받으실 수 있습니다. <strong><a href="https://www.nhis.or.kr/" target="_blank" rel="noopener noreferrer" class="text-orange-800 underline">국민건강보험공단 홈페이지</a> 또는 고객센터(<a href="tel:15771000" class="text-orange-800 underline">1577-1000</a>)</strong>에서 신청해 주세요.</p>
+            <p class="mt-1">※ 직장가입자의 일반건강검진 추가 등록은 회사 검진 담당자에게 문의해 주세요.</p>
         </div>
         <button type="button" id="close-checkup-guide-bottom"
                 class="mt-4 w-full py-3 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition">
@@ -2653,7 +2654,9 @@ function toggleBloodTest(id, button) {
 
             const note = document.createElement('p');
             note.className = 'mt-2 text-sm text-gray-600';
-            note.textContent = '비사무직 직장가입자는 출생연도와 관계없이 매년 일반건강검진(구강검진 포함) 대상이에요. 이월·추가 등록 등 개인별 대상 여부도 공단에서 확인해 주세요.';
+            const annualScreening = document.createElement('strong');
+            annualScreening.textContent = '비사무직 직장가입자는 매년 일반건강검진 대상이에요.';
+            note.append(annualScreening, ' 이월·추가 등록 등 개인별 대상 여부도 공단에서 확인해 주세요.');
             if (!items.length) heading.textContent = '출생연도만으로 안내할 항목이 없어요.';
             result.append(note);
         });
