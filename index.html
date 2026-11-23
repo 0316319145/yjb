@@ -48,6 +48,10 @@
             top: var(--site-header-height, 101px);
         }
 
+        #endo-schedule .doctor-schedule > img {
+            transform: translateY(-8px);
+        }
+
         @media (max-width: 420px) {
             .tab-btn {
                 min-width: 0;
@@ -68,12 +72,30 @@
             }
 
             #endo-schedule .doctor-schedule {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 32%);
+                align-items: end;
+                column-gap: 0.5rem;
                 padding-top: 0;
             }
 
             #endo-schedule .doctor-schedule > img {
                 position: static;
-                margin-left: auto;
+                grid-column: 2;
+                grid-row: 1;
+                justify-self: end;
+            }
+
+            #endo-schedule .doctor-schedule > img + div {
+                grid-column: 1;
+                grid-row: 1;
+                justify-self: start;
+                margin-top: 0;
+                word-break: keep-all;
+            }
+
+            #endo-schedule .doctor-schedule .schedule-table {
+                grid-column: 1 / -1;
             }
 
             #endo-schedule .schedule-table {
@@ -1843,9 +1865,9 @@
                 <span class="font-bold text-brand-dark flex items-center gap-1.5 mb-1">
                     <i class="fa-solid fa-clock text-brand-orange"></i> 문의 시간 안내
                 </span>
-                <p class="text-gray-700"><strong>평일: 오전 8시~오후 5시</strong> <span class="inline-block">(검진은 오후 4시 마감)</span></p>
+                <p class="text-gray-700"><strong>평일: 오전8시~오후5시</strong><span class="inline-block">(검진은 오후 4시 마감)</span></p>
                 <p class="text-gray-700">(※ 점심시간: 오후 1시~2시)</p>
-                <p class="text-gray-700"><strong>토요일: 오전 8시~정오 12시</strong> <span class="inline-block">(검진은 오전 11시 마감)</span></p>
+                <p class="text-gray-700"><strong>토요일: 오전8시~정오12시</strong> <span class="inline-block">(검진은 오전11시 마감)</span></p>
                 <p class="text-gray-700">(일요일, 공휴일 휴무)</p>
             </div>
 
