@@ -48,10 +48,6 @@
             top: var(--site-header-height, 101px);
         }
 
-        #endo-schedule .doctor-schedule > img {
-            transform: translateY(-8px);
-        }
-
         @media (max-width: 420px) {
             .tab-btn {
                 min-width: 0;
@@ -69,41 +65,6 @@
             #page-endoscopy p {
                 word-break: keep-all;
                 overflow-wrap: anywhere;
-            }
-
-            #endo-schedule .doctor-schedule {
-                display: grid;
-                grid-template-columns: minmax(0, 1fr) minmax(0, 32%);
-                align-items: end;
-                column-gap: 0.5rem;
-                padding-top: 0;
-            }
-
-            #endo-schedule .doctor-schedule > img {
-                position: static;
-                grid-column: 2;
-                grid-row: 1;
-                justify-self: end;
-            }
-
-            #endo-schedule .doctor-schedule > img + div {
-                grid-column: 1;
-                grid-row: 1;
-                justify-self: start;
-                margin-top: 0;
-                word-break: keep-all;
-            }
-
-            #endo-schedule .doctor-schedule .schedule-table {
-                grid-column: 1 / -1;
-            }
-
-            #endo-schedule .schedule-table {
-                overflow-x: auto;
-            }
-
-            #endo-schedule table {
-                min-width: 15rem;
             }
 
             #screening-sms-form .screening-date-row > label {
@@ -1789,7 +1750,7 @@
                 </div>
 
                 <!-- 1내과 공윤호 과장 -->
-                <div class="doctor-schedule relative pt-12 space-y-2">
+                <div class="relative pt-12 space-y-2">
                     <img src="1.jpg" alt="1내과 공윤호 과장님" class="absolute right-2 top-0 w-28 sm:w-32 h-auto z-0 pointer-events-none" />
                     <div class="relative z-10 inline-flex items-center gap-2 bg-orange-50 py-1.5 px-3 rounded-xl border border-orange-200">
                         <div class="flex items-center gap-2">
@@ -1797,7 +1758,7 @@
                             <span class="font-bold text-brand-dark text-base">1내과 공윤호 과장님</span>
                         </div>
                     </div>
-                    <div class="schedule-table relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                    <div class="relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                         <table class="w-full text-center text-sm">
                             <thead class="bg-brand-gray text-white font-semibold">
                                 <tr>
@@ -1820,7 +1781,7 @@
                 </div>
 
                 <!-- 2내과 주현식 과장 -->
-                <div class="doctor-schedule relative pt-12 space-y-2">
+                <div class="relative pt-12 space-y-2">
                     <img src="2.jpg" alt="2내과 주현식 과장님" class="absolute right-2 top-0 w-28 sm:w-32 h-auto z-0 pointer-events-none" />
                     <div class="relative z-10 inline-flex items-center gap-2 bg-orange-50 py-1.5 px-3 rounded-xl border border-orange-200">
                         <div class="flex items-center gap-2">
@@ -1828,7 +1789,7 @@
                             <span class="font-bold text-brand-dark text-base">2내과 주현식 과장님</span>
                         </div>
                     </div>
-                    <div class="schedule-table relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                    <div class="relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                         <table class="w-full text-center text-sm">
                             <thead class="bg-brand-gray text-white font-semibold">
                                 <tr>
