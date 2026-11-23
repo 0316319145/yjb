@@ -78,18 +78,18 @@
     <main class="max-w-md mx-auto px-4 pt-4">
 
         <!-- 1. 메인 홈 화면 -->
-        <section id="page-home" class="page-content space-y-5">
+        <section id="page-home" class="page-content space-y-3">
             <!-- 메인 안내 배너 -->
             <div class="bg-gradient-to-r from-brand-orange to-orange-400 rounded-2xl p-5 text-white shadow-md relative overflow-hidden">
                 <div class="relative z-10">
-                    <span class="inline-block bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-2">맞춤형 건강검진</span>
-                    <h2 class="text-xl font-bold leading-snug mb-1">정확한 진단과 세심한 케어</h2>
+                    <span class="inline-block bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-2">원스톱 건강검진</span>
+                    <h2 class="text-xl font-bold leading-snug mb-1">접수부터, 검사까지 한 층에서 끝나는 건강검진!</h2>
                     <p class="text-orange-100 text-sm font-normal">양정분 검진센터에서 당신의 건강을 지키세요.</p>
                 </div>
                 <i class="fa-solid fa-heart-pulse absolute -right-3 -bottom-3 text-white/10 text-8xl"></i>
             </div>
 
-            <!-- 2x2 카테고리 버튼 -->
+            <!-- 홈 검진 메뉴 -->
             <div>
                 <h3 class="text-base font-bold text-brand-dark mb-3 px-1 flex items-center gap-2">
                     <i class="fa-solid fa-grid-2 text-brand-orange"></i> 검진 안내 선택
@@ -101,6 +101,11 @@
                             <i class="fa-solid fa-file-medical"></i>
                         </div>
                         <span class="font-bold text-brand-dark text-base">공단검진</span>
+                    </button>
+
+                    <button type="button" id="open-checkup-guide-home"
+                            class="flex items-center justify-center rounded-2xl bg-brand-orange p-4 text-center text-base font-bold text-white shadow-sm transition hover:bg-orange-600">
+                        올해 내 검진 알아보기
                     </button>
 
                     <!-- 종합검진 안내 -->
@@ -120,11 +125,19 @@
                     </button>
 
                     <!-- 내시경 안내 -->
-                    <button onclick="showPage('endoscopy')" class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-brand-orange transition flex flex-col items-center text-center group">
+                    <button onclick="showPage('endoscopy', 'endo-stomach')" class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-brand-orange transition flex flex-col items-center text-center group">
                         <div class="w-14 h-14 bg-orange-50 text-brand-orange rounded-2xl flex items-center justify-center mb-3 text-2xl group-hover:scale-105 transition">
                             <i class="fa-solid fa-calendar-check"></i>
                         </div>
                         <span class="font-bold text-brand-dark text-base">내시경 안내</span>
+                    </button>
+
+                    <!-- 의료진 스케줄 -->
+                    <button onclick="showPage('endoscopy', 'endo-schedule')" class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-brand-orange transition flex flex-col items-center text-center group">
+                        <div class="w-14 h-14 bg-orange-50 text-brand-orange rounded-2xl flex items-center justify-center mb-3 text-2xl group-hover:scale-105 transition">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <span class="font-bold text-brand-dark text-base">의료진 스케줄</span>
                     </button>
                 </div>
             </div>
@@ -137,9 +150,9 @@
 
 <!-- 고정 하단/서브 바 네비게이션 -->
 <div class="sticky top-[101px] z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
+    <button onclick="scrollToSection('nat-notice')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">안내사항</button>
     <button onclick="scrollToSection('nat-general')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">일반건강검진</button>
     <button onclick="scrollToSection('nat-cancer')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">암검진</button>
-    <button onclick="scrollToSection('nat-notice')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">안내사항</button>
 </div>
 
 <div class="bg-orange-50 rounded-xl border border-orange-200 p-3.5 flex items-center gap-3 shadow-sm">
@@ -148,13 +161,110 @@
     </span>
     <div>
         <p class="text-base font-bold text-gray-900">국가건강검진 안내</p>
-        <p class="mt-1 text-sm text-gray-700">국민건강보험공단에서 정한 대상자는 일반건강검진과 국가암검진을 받으실 수 있습니다. 올해 받을 수 있는 검진 항목은 아래 <strong>‘올해 내 검진 알아보기’</strong>에서 확인해 주세요. 암검진은 항목과 대상에 따라 본인부담금이 발생할 수 있습니다.</p>
+        <p class="mt-1 text-sm text-gray-700">국민건강보험공단에서 정한 대상자는 일반건강검진과 국가암검진을 받으실 수 있습니다. 암검진은 항목과 대상에 따라 본인부담금이 발생할 수 있습니다.</p>
     </div>
 </div>
-<button type="button" id="open-checkup-guide"
-        class="w-full rounded-xl bg-brand-orange px-4 py-3.5 text-base font-bold text-white shadow-sm hover:bg-orange-600">
-    <i class="fa-solid fa-magnifying-glass mr-1" aria-hidden="true"></i> 올해 내 검진 알아보기
-</button>
+            <!-- 검진 시 주의사항 -->
+            <div id="nat-notice" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
+                <div class="flex items-center gap-2 border-b border-gray-100 pb-3 mb-4">
+                    <i class="fa-solid fa-circle-exclamation text-brand-orange text-xl"></i>
+                    <h2 class="text-lg font-bold text-brand-dark">&nbsp;2026년 검진 시 안내사항</h2>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="p-2.5 bg-orange-50/70 rounded-xl border border-orange-100 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-brand-orange mt-1 text-base"></i>
+                        <div class="min-w-0">
+                            <p class="text-base text-brand-dark font-bold">올해는 짝수년 출생자들이 대상자입니다.</p>
+                            <button type="button" id="open-checkup-guide-notice"
+                                    class="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-brand-orange px-3 py-2 text-sm font-bold text-white hover:bg-orange-600">
+                                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 올해 내 검진 알아보기
+                            </button>
+                        </div>
+                    </div>
+<div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
+    <!-- 아이콘: FontAwesome 신분증(id-card) 아이콘 -->
+    <i class="fa-solid fa-address-card text-brand-orange mt-1 text-base"></i>
+    <p class="text-base text-gray-800 font-medium">내원 시 <strong>신분증</strong>을 반드시 지참해 주세요.</p>
+</div>
+
+<div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
+    <i class="fa-solid fa-utensils text-brand-orange mt-1 text-base"></i>
+    <div>
+        <p class="text-base text-gray-800 font-medium">
+            8시간 이상 <strong>금식</strong>해서 내원해 주세요.
+        </p>
+        <p class="text-sm text-brand-orange font-medium mt-0.5">
+            ※ <strong>예약 필요 없이</strong> 금식 후 내원하시면 됩니다. (선착순 접수) 
+        </p>
+    </div>
+</div>
+
+                    <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
+                        <i class="fa-solid fa-pills text-brand-orange mt-1 text-base"></i>
+                     <div>
+
+<p class="text-base text-gray-800 font-medium">평소 복용 중인 약이 있다면 담당의와 상담하세요.</p>
+
+<p class="text-sm text-brand-orange font-medium mt-0.5">
+    ※ <strong><u>혈압약</strong></u>
+     : 검사 당일 아침 이른 시간에 소량의 물로 복용하시고, 약을 지참하고 오시기 바랍니다.<br>
+    ※ <strong><u>당뇨약/인슐린</strong></u> 
+     : 검진 당일 아침에는 저혈당 위험이 있으므로 복용 및 투여를 금지합니다.<br>
+    ※ <strong><u>항응고제(아스피린 등)</strong></u> 
+        : 내시경 조직검사 가능성이 있는 경우 사전 문의 필수.
+</p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
+                        <i class="fa-solid fa-gem text-brand-orange mt-1 text-base"></i>
+                        <div>
+                            <p class="text-base text-gray-800 font-medium">탈의 시 목걸이는 빼 주세요.</p>
+                            <p class="text-sm text-brand-orange font-medium mt-0.5">※ 분실 시 책임지지 않습니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
+                        <i class="fa-solid fa-syringe text-brand-orange mt-1 text-base" aria-hidden="true"></i>
+                        <p class="text-base text-gray-800"><strong>마운자로·위고비 사용 중인 분</strong>은 내시경 검사가 제한될 수 있으므로 내원 전 의료진과 상담해 주세요.</p>
+                    </div>
+
+                    <div class="p-2.5 bg-[#FFF5F5] rounded-xl border border-pink-100 flex items-start gap-3">
+                        <i class="fa-solid fa-droplet text-pink-700 mt-1 text-base" aria-hidden="true"></i>
+                        <p class="text-base text-gray-800"><strong>생리 중인 경우</strong> 가급적 생리 종료 3~5일 후 내원해 주세요.</p>
+                    </div>
+                    <div class="p-2.5 bg-[#FFF5F5] rounded-xl border border-pink-100 flex items-start gap-3">
+                        <i class="fa-solid fa-person-pregnant text-pink-700 mt-1 text-base" aria-hidden="true"></i>
+                        <p class="text-base text-gray-800"><strong>임신 중·임신 가능성·수유 중인 분</strong>은 안전을 위해 방사선 및 내시경 검사를 진행하지 않습니다. 검사 전 반드시 말씀해 주세요.</p>
+                    </div>
+                </div>
+            </div>
+
+<!-- 검진결과 카카오톡 안내 -->
+<div class="bg-orange-50 rounded-xl border border-orange-200 p-3.5 flex items-center gap-3 shadow-sm">
+
+    <img 
+        src="https://cdn.simpleicons.org/kakaotalk/FFCD00"
+        alt="카카오톡"
+        class="w-8 h-8 flex-shrink-0"
+    >
+
+  <div>
+        <p class="text-base font-bold text-gray-900">
+            카카오톡으로 검진결과 받아보세요! 
+        </p>    <p class="text-sm text-gray-600 font-medium mt-0.5">
+
+           카카오톡에서 이메일 전송이 가능합니다. </br>접수 시 신청해 주세요.
+        </p>
+    </div> 
+
+
+
+</div>
+
 <!-- 검진동선 알아보기 버튼 -->
 <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm">
     <button
@@ -167,7 +277,6 @@
     </button>
 </div>
 
-                </div>
             <!-- 일반검진 -->
             <div id="nat-general" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm space-y-4">
                 <div class="border-b border-gray-100 pb-3">
@@ -345,85 +454,6 @@
                 </div>
             </div>
 
-
-            <!-- 검진 시 주의사항 -->
-            <div id="nat-notice" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
-                <div class="flex items-center gap-2 border-b border-gray-100 pb-3 mb-4">
-                    <i class="fa-solid fa-circle-exclamation text-brand-orange text-xl"></i>
-                    <h2 class="text-lg font-bold text-brand-dark">&nbsp;2026년 검진 시 안내사항</h2>
-                </div>
-                
-                <div class="space-y-3">
-                    <div class="p-2.5 bg-orange-50/70 rounded-xl border border-orange-100 flex items-start gap-3">
-                        <i class="fa-solid fa-circle-check text-brand-orange mt-1 text-base"></i>
-                        <p class="text-base text-brand-dark font-bold">올해는 짝수년 출생자들이 대상자입니다.</p>
-                    </div>
-<div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
-    <!-- 아이콘: FontAwesome 신분증(id-card) 아이콘 -->
-    <i class="fa-solid fa-address-card text-brand-orange mt-1 text-base"></i>
-    <p class="text-base text-gray-800 font-medium">내원 시 <strong>신분증</strong>을 반드시 지참해 주세요.</p>
-</div>
-
-<div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
-    <i class="fa-solid fa-utensils text-brand-orange mt-1 text-base"></i>
-    <div>
-        <p class="text-base text-gray-800 font-medium">
-            8시간 이상 <strong>금식</strong>해서 내원해 주세요.
-        </p>
-        <p class="text-sm text-brand-orange font-medium mt-0.5">
-            ※ <strong>예약 필요 없이</strong> 금식 후 내원하시면 됩니다. 
-        </p>
-    </div>
-</div>
-
-                    <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
-                        <i class="fa-solid fa-pills text-brand-orange mt-1 text-base"></i>
-                     <div>
-
-<p class="text-base text-gray-800 font-medium">평소 복용 중인 약이 있다면 담당의와 상담하세요.</p>
-
-<p class="text-sm text-brand-orange font-medium mt-0.5">
-    ※ <strong><u>혈압약</strong></u>
-     : 검사 당일 아침 이른 시간에 소량의 물로 복용하시고, 약을 지참하고 오시기 바랍니다.<br>
-    ※ <strong><u>당뇨약/인슐린</strong></u> 
-     : 검진 당일 아침에는 저혈당 위험이 있으므로 복용 및 투여를 금지합니다.<br>
-    ※ <strong><u>항응고제(아스피린 등)</strong></u> 
-        : 내시경 조직검사 가능성이 있는 경우 사전 문의 필수.
-</p>
-
-
-                        </div>
-                    </div>
-
-                    <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
-                        <i class="fa-solid fa-gem text-brand-orange mt-1 text-base"></i>
-                        <div>
-                            <p class="text-base text-gray-800 font-medium">탈의 시 목걸이는 빼 주세요.</p>
-                            <p class="text-sm text-brand-orange font-medium mt-0.5">※ 분실 시 책임지지 않습니다.</p>
-                        </div>
-                    </div>
-
-                    <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-3">
-                        <i class="fa-solid fa-syringe text-brand-orange mt-1 text-base" aria-hidden="true"></i>
-                        <p class="text-base text-gray-800"><strong>마운자로·위고비 사용 중인 분</strong>은 내시경 검사가 제한될 수 있으므로 내원 전 의료진과 상담해 주세요.</p>
-                    </div>
-
-                <div class="p-2.5 bg-[#FFF5F5] rounded-xl border border-pink-100 flex items-start gap-3">
-    <i class="fa-solid fa-shirt text-pink-700 mt-1 text-base"></i>
-    <p class="text-base text-gray-800 font-medium">
-        여성분은 브래지어도 탈의하시고 가운을 입어 주세요.
-        <span class="block text-sm text-pink-700 font-medium mt-0.5">
-            ※ 스포츠브라, 수유브라도 탈의해 주세요.        </span>
-    </p>
-</div>
-                    <div class="p-2.5 bg-[#FFF5F5] rounded-xl border border-pink-100 flex items-start gap-3">
-                        <i class="fa-solid fa-droplet text-pink-700 mt-1 text-base" aria-hidden="true"></i>
-                        <p class="text-base text-gray-800"><strong>생리 중인 경우</strong> 가급적 생리 종료 3~5일 후 내원해 주세요.</p>
-                    </div>
-                    <div class="p-2.5 bg-[#FFF5F5] rounded-xl border border-pink-100 flex items-start gap-3">
-                        <i class="fa-solid fa-person-pregnant text-pink-700 mt-1 text-base" aria-hidden="true"></i>
-                        <p class="text-base text-gray-800"><strong>임신 중·임신 가능성·수유 중인 분</strong>은 안전을 위해 방사선 및 내시경 검사를 진행하지 않습니다. 검사 전 반드시 말씀해 주세요.</p>
-                    </div>
 
 <!-- 검진동선 팝업 -->
 <div id="checkupRouteModal"
@@ -651,29 +681,6 @@
     </div>
 </div>
 
-
-<!-- 검진결과 카카오톡 안내 -->
-<div class="bg-orange-50 rounded-xl border border-orange-200 p-3.5 flex items-center gap-3 shadow-sm">
-
-    <img 
-        src="https://cdn.simpleicons.org/kakaotalk/FFCD00"
-        alt="카카오톡"
-        class="w-8 h-8 flex-shrink-0"
-    >
-
-  <div>
-        <p class="text-base font-bold text-gray-900">
-            카카오톡으로 검진결과 받아보세요! 
-        </p>    <p class="text-sm text-gray-600 font-medium mt-0.5">
-
-           카카오톡에서 이메일 전송이 가능합니다. </br>접수 시 신청해 주세요.
-        </p>
-    </div> 
-
-
-
-</div>
-
         </section>
 
         <!-- 3. 종합검진 안내 페이지 -->
@@ -689,7 +696,7 @@
     </span>
     <div>
         <p class="text-base font-bold text-gray-900">종합검진 안내</p>
-        <p class="mt-1 text-sm text-gray-700">위 종합검진과 위·대장 종합검진 중 원하시는 프로그램을 선택하실 수 있습니다. 종합검진은 별도 비용이 있으며, 검사 구성과 비용은 아래에서 확인해 주세요.</p>
+        <p class="mt-1 text-sm text-gray-700">위 종합검진과 위·대장 종합검진 중 원하시는 프로그램을 선택하실 수 있습니다. 종합검진의 검사 구성과 비용은 아래에서 확인해 주세요.</p>
     </div>
 </div>
 <!-- 종합검진 전체 -->
@@ -1044,6 +1051,7 @@
         <div>
             <p class="text-base font-bold text-gray-900">국가건강검진에 더하면 좋은 검진</p>
             <p class="mt-1 text-sm text-gray-700">원하시는 분만 추가할 수 있는 선택검사이며, 검사별 비용은 아래에 표시되어 있습니다.</p>
+            <p class="mt-1 text-sm text-gray-700">별도 예약 없이, 접수 시 원하시는 검사를 말씀해 주세요.</p>
         </div>
     </div>
 
@@ -1550,7 +1558,7 @@
         <!-- 5. 내시경 상세 안내 페이지 (새로 구성된 상단 메뉴 및 이미지 내용 반영) -->
         <section id="page-endoscopy" class="page-content hidden space-y-6">
             
-            <!-- 상단 고정 내시경 메뉴바 (위 내시경, 대장 내시경, 헬리코박터 순) -->
+            <!-- 상단 고정 내시경 메뉴바 (위 내시경, 대장 내시경, 헬리코박터, 의료진 스케줄 순) -->
             <div class="sticky top-[101px] z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
                 <button onclick="scrollToSection('endo-stomach')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">위 내시경</button>
                 <button onclick="scrollToSection('endo-colon')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">대장 내시경</button>
@@ -1665,7 +1673,13 @@
                 </div>
                       <p class="text-sm text-gray-600 font-medium mt-2">
     <strong class="text-gray-700">※ 대장 내시경 예약 안내:</strong> 내원 후 전문 의료진과 상담을 거쳐 예약이 진행됩니다.
-</p></div>
+</p>
+<a href="tel:031-631-9145"
+   onclick="return checkBusinessHours();"
+   class="bg-brand-orange hover:bg-orange-600 text-white text-base font-semibold px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5">
+    <i class="fa-solid fa-phone"></i> 대장 내시경 예약하기 
+</a>
+</div>
 
             <!-- 3. 헬리코박터균 섹션 ( 이미지 기반) -->
             <div id="endo-helicobacter" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm space-y-4">
@@ -1704,8 +1718,7 @@
             </div>
             </div>
 
-
-            <!-- 4. 의료진 스케줄 -->
+            <!-- 의료진 스케줄 -->
             <div id="endo-schedule" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm space-y-5">
                 <div class="border-b border-gray-100 pb-3">
                     <h2 class="text-lg font-bold text-brand-dark">의료진 스케줄</h2>
@@ -1775,8 +1788,6 @@
                 </div>
 
             </div>
-
-
         </section>
     </main>
     
@@ -2154,7 +2165,7 @@ function closeCheckupRoute() {
 
     <script>
         // 페이지 전환 함수 (선택된 탭에 주황색 배경 적용)
-        function showPage(pageId) {
+        function showPage(pageId, sectionId) {
             const pages = document.querySelectorAll('.page-content');
             pages.forEach(page => page.classList.add('hidden'));
 
@@ -2174,7 +2185,11 @@ function closeCheckupRoute() {
                 activeTab.style.backgroundColor = '#ff6600';
             }
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (sectionId) {
+                scrollToSection(sectionId);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
         // 초기 실행 시 홈 탭 기본 활성화 상태 반영
@@ -2486,6 +2501,10 @@ function toggleBloodTest(id, button) {
         <p class="mt-4 text-sm text-gray-600"><strong>출생연도와 성별로 보는 간편 안내예요.</strong> 최종 대상 항목은 국민건강보험공단에서 본인 인증 후 확인해 주세요.</p>
         <a href="https://www.nhis.or.kr/nhis/index.do" target="_blank" rel="noopener"
            class="mt-2 inline-block text-sm font-semibold text-orange-800 underline">국민건강보험공단에서 대상 확인</a>
+        <div class="mt-4 rounded-xl border border-orange-200 bg-orange-50 px-3 py-3 text-sm leading-relaxed text-gray-800">
+            <h3 class="font-bold text-gray-900">작년에 국가건강검진을 못 받으셨나요?</h3>
+            <p class="mt-1">작년 검진 대상이었지만 받지 못하셨다면, 국민건강보험공단에 <strong>전년도 미수검자 추가 신청</strong>을 한 뒤 올해 검진을 받으실 수 있습니다. 신청 가능한 항목은 공단 고객센터(<a href="tel:15771000" class="font-semibold text-orange-800 underline">1577-1000</a>)에서 확인해 주세요.</p>
+        </div>
         <button type="button" id="close-checkup-guide-bottom"
                 class="mt-4 w-full py-3 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition">
             닫기
@@ -2500,7 +2519,8 @@ function toggleBloodTest(id, button) {
         const input = document.getElementById('checkup-birth-year');
         const result = document.getElementById('checkup-guide-result');
 
-        document.getElementById('open-checkup-guide').addEventListener('click', () => dialog.showModal());
+        document.getElementById('open-checkup-guide-home').addEventListener('click', () => dialog.showModal());
+        document.getElementById('open-checkup-guide-notice').addEventListener('click', () => dialog.showModal());
         document.getElementById('close-checkup-guide').addEventListener('click', () => dialog.close());
         document.getElementById('close-checkup-guide-bottom').addEventListener('click', () => dialog.close());
         dialog.addEventListener('close', () => {
@@ -2566,7 +2586,19 @@ function toggleBloodTest(id, button) {
             const heading = document.createElement('h3');
             heading.className = 'text-base font-extrabold';
             heading.textContent = screeningYear + '년 확인할 검진 항목';
-            result.replaceChildren(heading);
+            const resultHeader = document.createElement('div');
+            resultHeader.className = 'flex items-center justify-between gap-2';
+            const detailsButton = document.createElement('button');
+            detailsButton.type = 'button';
+            detailsButton.className = 'shrink-0 rounded-lg border border-orange-200 bg-orange-50 px-2.5 py-1.5 text-xs font-semibold text-orange-800 hover:bg-orange-100';
+            detailsButton.textContent = '공단검진 안내 보기 ›';
+            detailsButton.addEventListener('click', () => {
+                dialog.close();
+                showPage('national');
+                document.getElementById('tab-national').focus({ preventScroll: true });
+            });
+            resultHeader.append(heading, detailsButton);
+            result.replaceChildren(resultHeader);
 
             if (items.length) {
                 const list = document.createElement('ul');
