@@ -44,6 +44,61 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        .section-nav {
+            top: var(--site-header-height, 101px);
+        }
+
+        @media (max-width: 420px) {
+            .tab-btn {
+                min-width: 0;
+                padding-inline: 0.25rem;
+                font-size: 0.875em;
+                line-height: 1.35;
+                white-space: normal;
+                word-break: keep-all;
+                overflow-wrap: anywhere;
+            }
+
+            #page-home h2,
+            #page-national p,
+            #page-total p,
+            #page-endoscopy p {
+                word-break: keep-all;
+                overflow-wrap: anywhere;
+            }
+
+            #endo-schedule .doctor-schedule {
+                padding-top: 0;
+            }
+
+            #endo-schedule .doctor-schedule > img {
+                position: static;
+                margin-left: auto;
+            }
+
+            #endo-schedule .schedule-table {
+                overflow-x: auto;
+            }
+
+            #endo-schedule table {
+                min-width: 15rem;
+            }
+
+            #screening-sms-form .screening-date-row > label {
+                min-width: 0;
+            }
+
+            #screening-sms-form input[type="date"] {
+                max-width: min(100%, 11rem);
+            }
+        }
+
+        @media (max-width: 360px) {
+            #screening-sms-form .screening-date-row {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 0.25rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 pb-12 antialiased">
@@ -105,7 +160,7 @@
 
                     <button type="button" id="open-checkup-guide-home"
                             class="flex items-center justify-center rounded-2xl bg-brand-orange p-4 text-center text-base font-bold text-white shadow-sm transition hover:bg-orange-600">
-                        올해 내 검진 알아보기
+                        <span>올해<br>내 검진<br>알아보기</span>
                     </button>
 
                     <!-- 종합검진 안내 -->
@@ -149,7 +204,7 @@
 
 
 <!-- 고정 하단/서브 바 네비게이션 -->
-<div class="sticky top-[101px] z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
+<div class="section-nav sticky z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
     <button onclick="scrollToSection('nat-notice')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">안내사항</button>
     <button onclick="scrollToSection('nat-general')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">일반건강검진</button>
     <button onclick="scrollToSection('nat-cancer')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">암검진</button>
@@ -355,15 +410,11 @@
                 <div class="space-y-3">
                     <!-- 위암 -->
 <div class="relative overflow-hidden p-4 bg-gray-50 rounded-xl border border-gray-200">
-    <!-- 우측 상단 리본 배지 -->
-    <span class="absolute top-0 right-0 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-bl-lg shadow-sm">
-        40세 이상 남·녀 (2년 주기)
-    </span>
-
-    <div class="flex justify-between items-start mb-2 pr-28">
+    <div class="mb-2 flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
         <span class="font-bold text-brand-dark text-base">
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;&nbsp;위암
         </span>
+        <span class="rounded-md px-3 py-1 text-xs font-bold text-white bg-brand-orange">40세 이상 남·녀 (2년 주기)</span>
     </div>
     <p class="text-base text-gray-800 font-medium">일반 내시경검사</p>
     <p class="text-sm text-gray-500 font-bold mt-1.5">※ 수면비 별도</p>
@@ -371,14 +422,11 @@
 
 <!-- 대장암 -->
 <div class="relative overflow-hidden p-4 bg-gray-50 rounded-xl border border-gray-200 mt-4">
-    <span class="absolute top-0 right-0 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-bl-lg shadow-sm">
-        50세 이상 남·녀 (1년 주기)
-    </span>
-
-    <div class="flex justify-between items-start mb-2 pr-28">
+    <div class="mb-2 flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
         <span class="font-bold text-brand-dark text-base">
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;&nbsp;대장암
         </span>
+        <span class="rounded-md px-3 py-1 text-xs font-bold text-white bg-brand-orange">50세 이상 남·녀 (1년 주기)</span>
     </div>
     <p class="text-base text-gray-800 font-medium">분변잠혈검사</p>
     <p class="text-sm text-gray-500 font-bold mt-1.5"><strong>※ 분변잠혈반응검사란? </strong>대변속의 혈액성분을 확인하는 검사</p>
@@ -387,14 +435,11 @@
 
 <!-- 간암 -->
 <div class="relative overflow-hidden p-4 bg-gray-50 rounded-xl border border-gray-200 mt-4">
-    <span class="absolute top-0 right-0 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-bl-lg shadow-sm">
-        40세 이상 고위험군 남·녀 (연 2회)
-    </span>
-
-    <div class="flex justify-between items-start mb-2 pr-32">
+    <div class="mb-2 flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
         <span class="font-bold text-brand-dark text-base">
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;&nbsp;간암
         </span>
+        <span class="rounded-md px-3 py-1 text-xs font-bold text-white bg-brand-orange">40세 이상 고위험군 남·녀 (연 2회)</span>
     </div>
     <p class="text-base text-gray-800 font-medium">간초음파 + 혈액검사(AFP)</p>
     <p class="text-sm text-gray-500 font-bold mt-1.5"><strong>※ 고위험군이란? </strong>간경변증, C형간염항체 양성, 만성 간질환, B형간염항원 양성 등</p>
@@ -402,14 +447,11 @@
 
 <!-- 자궁경부암 -->
 <div class="relative overflow-hidden p-4 bg-gray-50 rounded-xl border border-gray-200 mt-4">
-    <span class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg shadow-sm">
-        20세 이상 여성 (2년 주기)
-    </span>
-
-    <div class="flex justify-between items-start mb-2 pr-28">
+    <div class="mb-2 flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
         <span class="font-bold text-brand-dark text-base">
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;&nbsp;자궁경부암
         </span>
+        <span class="rounded-md px-3 py-1 text-xs font-bold text-white bg-pink-600">20세 이상 여성 (2년 주기)</span>
     </div>
     <p class="text-base text-gray-800 font-medium">자궁경부질도말검사</p>
     <p class="text-sm text-gray-500 font-bold mt-1.5">※ 생리 중에는 검사 어려움</p>
@@ -417,14 +459,11 @@
 
 <!-- 유방암 -->
 <div class="relative overflow-hidden p-4 bg-gray-50 rounded-xl border border-gray-200 mt-4">
-    <span class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg shadow-sm">
-        40세 이상 여성 (2년 주기)
-    </span>
-
-    <div class="flex justify-between items-start mb-2 pr-28">
+    <div class="mb-2 flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
         <span class="font-bold text-brand-dark text-base">
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;&nbsp;유방암
         </span>
+        <span class="rounded-md px-3 py-1 text-xs font-bold text-white bg-pink-600">40세 이상 여성 (2년 주기)</span>
     </div>
     <p class="text-base text-gray-800 font-medium">유방 X-선 검사</p>
     <p class="text-sm text-gray-500 font-bold mt-1.5">※ 유방촬영 시 AI 보조 판독 시스템을 활용하여 정밀하게 검사합니다.</p>
@@ -435,8 +474,10 @@
                     <div>
                         <span class="font-bold text-base block text-orange-200 mb-0 border-b border-gray-600 pb-0.5">※ 국가암검진 본인부담금 안내</span>
                         <div class="text-sm text-slate-200 space-y-0.5 font-medium mt-1">
-                            <p>• 위 내시경: 9,490원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   • 위 조직검사: 7,840원</p>
-                            <p>• 유방암: 5,280원   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     • 간암: 13,060원</p>
+                            <p>• 위 내시경: 9,490원</p>
+                            <p>• 위 조직검사: 7,840원</p>
+                            <p>• 유방암: 5,280원</p>
+                            <p>• 간암: 13,060원</p>
                            <p> <br>※ 표시된 본인부담금은 수가 개정에 따라 일부 변동될 수 있습니다.</p>
 
                         </div>
@@ -446,7 +487,8 @@
                     <div>
                         <span class="font-bold text-base block text-orange-200 mb-1 border-b border-gray-600 pb-1">※ 수면비 (공단대상)</span>
                         <div class="text-sm text-slate-200 space-y-0.5 font-medium mt-1.5">
-                            <p>• 위 내시경: 4만원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  • 대장 내시경: 6만원</p>
+                            <p>• 위 내시경: 4만원</p>
+                            <p>• 대장 내시경: 6만원</p>
                             <p>• 위 + 대장 내시경: 8만원</p>
                         </div>
                     </div>
@@ -685,7 +727,7 @@
         <!-- 3. 종합검진 안내 페이지 -->
         <section id="page-total" class="page-content hidden space-y-4">
 <!-- 고정 하단/서브 바 네비게이션 -->
-<div class="sticky top-[101px] z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
+<div class="section-nav sticky z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
     <button onclick="scrollToSection('tot-stomach')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">위 종합검진</button>
     <button onclick="scrollToSection('tot-stomachcolon')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">위·대장 종합검진</button>
 </div>
@@ -704,11 +746,11 @@
 <!-- 위 종합검진 -->
 <div id="tot-stomach" class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-3">
 
-    <div class="bg-brand-gray text-white p-4 rounded-xl flex justify-between items-center shadow-sm">
+    <div class="bg-brand-gray text-white px-4 py-3 rounded-xl flex flex-col items-start gap-0 shadow-sm">
         <h2 class="text-lg font-bold flex items-center gap-2">
             위 종합검진
         </h2>
-        <span class="text-base font-extrabold text-orange-300">남 39만 / 여 43만</span>
+        <span class="text-base font-extrabold text-orange-300 self-end text-right">남 39만 / 여 43만</span>
     </div>
 
         <div class="space-y-3">
@@ -984,14 +1026,14 @@
     <!-- 위·대장 종합검진 -->
     <div id="tot-stomachcolon" class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-3">
 
-        <div class="bg-brand-gray text-white p-4 rounded-xl flex justify-between items-center shadow-sm">
+        <div class="bg-brand-gray text-white px-4 py-3 rounded-xl flex flex-col items-start gap-0 shadow-sm">
             <h2 class="text-lg font-bold">위 · 대장 종합검진</h2>
-            <span class="text-base font-extrabold text-orange-300">남 50만 / 여 54만</span>
+            <span class="text-base font-extrabold text-orange-300 self-end text-right">남 50만 / 여 54만</span>
         </div>
 
         <div class="p-4 bg-white rounded-xl border border-gray-200 text-center">
             <p class="font-bold text-brand-dark text-lg">
-                위 종합검진 +     <i class="fa-solid fa-star text-yellow-500" aria-hidden="true"></i> <span class="font-bold text-green-600 underline decoration-2 underline-offset-2">대장 내시경</span>
+                위 종합검진<br><span class="inline-block text-3xl leading-none text-orange-700">+</span><br><i class="fa-solid fa-star text-yellow-500" aria-hidden="true"></i> <span class="font-bold text-green-600 underline decoration-2 underline-offset-2">대장 내시경</span>
                 <span class="text-brand-green text-sm font-semibold">(수면)</span> 
             </p>
         </div>
@@ -1035,7 +1077,7 @@
 <section id="page-custom" class="page-content hidden space-y-4">
 
     <!-- 고정 하단/서브 바 네비게이션: 표시 순서와 실제 카드 순서 동일 -->
-    <div class="sticky top-[101px] z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
+    <div class="section-nav sticky z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
         <button onclick="scrollToSection('cus-blood')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">혈액종검</button>
         <button onclick="scrollToSection('cus-us')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">초음파</button>
         <button onclick="scrollToSection('cus-woman')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">여성검진</button>
@@ -1558,7 +1600,7 @@
         <section id="page-endoscopy" class="page-content hidden space-y-6">
             
             <!-- 상단 고정 내시경 메뉴바 (위 내시경, 대장 내시경, 헬리코박터, 의료진 스케줄 순) -->
-            <div class="sticky top-[101px] z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
+            <div class="section-nav sticky z-30 bg-gray-100 py-2 -mx-4 px-4 overflow-x-auto hide-scrollbar flex gap-2 border-b border-gray-200 shadow-sm">
                 <button onclick="scrollToSection('endo-stomach')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">위 내시경</button>
                 <button onclick="scrollToSection('endo-colon')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">대장 내시경</button>
                 <button onclick="scrollToSection('endo-helicobacter')" class="px-4 py-2.5 bg-brand-gray text-white text-sm font-bold rounded-full whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-brand-orange transition">헬리코박터균</button>
@@ -1584,11 +1626,11 @@
 
             <!-- 1. 위 내시경 섹션 ( 이미지 기반) -->
             <div id="endo-stomach" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm space-y-4">
-                <div class="bg-brand-gray text-white p-4 rounded-xl flex justify-between items-center shadow-sm">
+                <div class="bg-brand-gray text-white px-4 py-3 rounded-xl flex flex-col items-start gap-0 shadow-sm">
                     <h2 class="text-lg font-bold flex items-center gap-2">
                         <i class="fa-solid fa-laptop-medical"></i> 위 내시경
                     </h2>
-                    <span class="text-xs text-orange-200 font-semibold">식도, 위, 십이지장을 관찰</span>
+                    <span class="text-[10pt] text-orange-200 font-semibold self-end text-right">식도, 위, 십이지장을 관찰</span>
                 </div>
 
                 <!-- 위 내시경이 필요한 경우 -->
@@ -1627,11 +1669,11 @@
 
             <!-- 2. 대장 내시경 섹션 ( 이미지 기반) -->
             <div id="endo-colon" class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm space-y-4">
-                <div class="bg-brand-gray text-white p-4 rounded-xl flex justify-between items-center shadow-sm">
+                <div class="bg-brand-gray text-white px-4 py-3 rounded-xl flex flex-col items-start gap-0 shadow-sm">
                     <h2 class="text-lg font-bold flex items-center gap-2">
                         <i class="fa-solid fa-notes-medical"></i> 대장 내시경
                     </h2>
-                    <span class="text-xs text-orange-200 font-semibold">대장의 염증·용종·종양 검사</span>
+                    <span class="text-[10pt] text-orange-200 font-semibold self-end text-right">대장의 염증·용종·종양 검사</span>
                 </div>
 
 
@@ -1725,7 +1767,7 @@
                 </div>
 
                 <!-- 1내과 공윤호 과장 -->
-                <div class="relative pt-12 space-y-2">
+                <div class="doctor-schedule relative pt-12 space-y-2">
                     <img src="1.jpg" alt="1내과 공윤호 과장님" class="absolute right-2 top-0 w-28 sm:w-32 h-auto z-0 pointer-events-none" />
                     <div class="relative z-10 inline-flex items-center gap-2 bg-orange-50 py-1.5 px-3 rounded-xl border border-orange-200">
                         <div class="flex items-center gap-2">
@@ -1733,7 +1775,7 @@
                             <span class="font-bold text-brand-dark text-base">1내과 공윤호 과장님</span>
                         </div>
                     </div>
-                    <div class="relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                    <div class="schedule-table relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                         <table class="w-full text-center text-sm">
                             <thead class="bg-brand-gray text-white font-semibold">
                                 <tr>
@@ -1756,7 +1798,7 @@
                 </div>
 
                 <!-- 2내과 주현식 과장 -->
-                <div class="relative pt-12 space-y-2">
+                <div class="doctor-schedule relative pt-12 space-y-2">
                     <img src="2.jpg" alt="2내과 주현식 과장님" class="absolute right-2 top-0 w-28 sm:w-32 h-auto z-0 pointer-events-none" />
                     <div class="relative z-10 inline-flex items-center gap-2 bg-orange-50 py-1.5 px-3 rounded-xl border border-orange-200">
                         <div class="flex items-center gap-2">
@@ -1764,7 +1806,7 @@
                             <span class="font-bold text-brand-dark text-base">2내과 주현식 과장님</span>
                         </div>
                     </div>
-                    <div class="relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                    <div class="schedule-table relative z-10 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                         <table class="w-full text-center text-sm">
                             <thead class="bg-brand-gray text-white font-semibold">
                                 <tr>
@@ -1813,7 +1855,7 @@
                     <i class="fa-solid fa-location-dot text-emerald-600 text-lg shrink-0 mt-0.5"></i>
                     <div class="min-w-0">
                         <span class="font-bold text-brand-dark block text-xs mb-0.5">병원 주소</span>
-                        <span class="text-gray-800 text-xs block leading-relaxed">경기도 이천시 이섭대천로 1186</span>
+                        <span class="text-gray-800 text-[10pt] block leading-relaxed">경기도 이천시 이섭대천로 1186</span>
                     </div>
                 </div>
                 
@@ -2197,11 +2239,20 @@ function closeCheckupRoute() {
             // 기본 상태 설정
         });
 
+        const siteHeader = document.querySelector('body > header');
+        const updateHeaderHeight = () => {
+            document.documentElement.style.setProperty('--site-header-height', siteHeader.offsetHeight + 'px');
+        };
+        updateHeaderHeight();
+        new ResizeObserver(updateHeaderHeight).observe(siteHeader);
+
         // 스크롤 이동 함수 (내부 서브 바 클릭 시)
         function scrollToSection(sectionId) {
             const el = document.getElementById(sectionId);
             if (el) {
-                const headerOffset = 135;
+                const headerHeight = document.querySelector('body > header').offsetHeight;
+                const navigationHeight = el.closest('.page-content')?.querySelector('.section-nav')?.offsetHeight ?? 0;
+                const headerOffset = headerHeight + navigationHeight + 8;
                 const elementPosition = el.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -2345,7 +2396,7 @@ function toggleBloodTest(id, button) {
             <input name="birthDate" type="text" placeholder="예 19700101" required
                    class="w-full min-w-0 rounded-lg border border-gray-400 px-3 py-2 text-base font-normal">
         </label>
-        <div class="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3">
+        <div class="screening-date-row grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3">
             <label class="block min-w-0 text-sm font-semibold">
                 희망 날짜 (선택)
                 <input name="preferredDate" type="date"
