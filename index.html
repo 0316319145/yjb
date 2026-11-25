@@ -129,9 +129,6 @@
 
             <!-- 홈 검진 메뉴 -->
             <div>
-                <h3 class="text-base font-bold text-brand-dark mb-3 px-1 flex items-center gap-2">
-                    <i class="fa-solid fa-grid-2 text-brand-orange"></i> 검진 안내 선택
-                </h3>
                 <div class="grid grid-cols-2 gap-3.5">
                     <!-- 공단검진 안내 -->
                     <button onclick="showPage('national')" class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-brand-orange transition flex flex-col items-center text-center group">
@@ -450,21 +447,21 @@
                 <!-- 비용 안내 박스 -->
                 <div class="p-2 bg-brand-gray text-white rounded-xl space-y-3 mt-2">
                     <div>
-                        <span class="font-bold text-base block text-orange-200 mb-0 border-b border-gray-600 pb-0.5">※ 국가암검진 본인부담금 안내</span>
-                        <div class="text-sm text-slate-200 space-y-0.5 font-medium mt-1">
+                        <span class="font-bold text-base block text-orange-200 border-b border-gray-600">※ 국가암검진 본인부담금 안내</span>
+                        <div class="text-sm text-slate-200 space-y-0.5 font-medium mt-0.5">
                             <p>• 위 내시경: 9,490원</p>
                             <p>• 위 조직검사: 7,840원</p>
                             <p>• 유방암: 5,280원</p>
                             <p>• 간암: 13,060원</p>
-                           <p> <br>※ 표시된 본인부담금은 수가 개정에 따라 일부 변동될 수 있습니다.</p>
+                           <p class="pt-1">※ 표시된 본인부담금은 수가 개정에 따라 일부 변동될 수 있습니다.</p>
 
                         </div>
                     </div>
                     </div>
                 <div class="p-2 bg-brand-gray text-white rounded-xl space-y-3 mt-2">
                     <div>
-                        <span class="font-bold text-base block text-orange-200 mb-1 border-b border-gray-600 pb-1">※ 수면비 (공단대상)</span>
-                        <div class="text-sm text-slate-200 space-y-0.5 font-medium mt-1.5">
+                        <span class="font-bold text-base block text-orange-200 border-b border-gray-600">※ 수면비 (공단대상)</span>
+                        <div class="text-sm text-slate-200 space-y-0.5 font-medium mt-0.5">
                             <p>• 위 내시경: 4만원</p>
                             <p>• 대장 내시경: 6만원</p>
                             <p>• 위 + 대장 내시경: 8만원</p>
@@ -728,7 +725,7 @@
     <i class="fa-solid fa-phone"></i> 종합검진 예약 전화하기 
 </a>
 <button type="button" data-open-screening-sms
-        class="mt-2 w-full bg-white border border-orange-700 text-orange-800 hover:bg-orange-50 text-base font-semibold px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5">
+        class="mt-2 w-full bg-orange-50 border border-orange-700 text-orange-800 text-base font-semibold px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5">
     <i class="fa-solid fa-comment-sms" aria-hidden="true"></i> 종합검진 예약 문자 보내기
 </button>
         </div>
@@ -1036,7 +1033,7 @@
 
     <!-- 검진 관련 안내 -->
     <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
-        <p class="font-medium text-base text-gray-800"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i>&nbsp;&nbsp;위 종합검진은 예약이 원칙이나 조건 충족 시 당일 검진 가능</p>
+        <p class="font-medium text-base text-gray-800"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i>&nbsp;&nbsp;위 종합검진은 예약이 원칙이나 조건 충족 시 당일 검진이 가능할 수 있습니다. (문의: 접수처)</p>
         <p class="font-medium text-base text-gray-800">
 <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp;위 · 대장 종합검진은 예약 후 사전 문진 및 상담을 위해 내원이 필요합니다.
         </p>
@@ -1044,7 +1041,7 @@
             <i class="fa-solid fa-droplet" aria-hidden="true"></i>&nbsp;&nbsp;생리 중인 여성분은 가급적 생리 종료 3~5일 후 내원해 주세요.
         </p>
         <p class="font-medium text-base text-gray-800">
-<i class="fa-regular fa-credit-card"></i> &nbsp;&nbsp;내시경 시 헬리코박터검사, 조직검사, 용종절제술 시 추가 비용 (접수에 문의)
+<i class="fa-regular fa-credit-card"></i> &nbsp;&nbsp;내시경 중 헬리코박터 검사, 조직검사 또는 용종절제술을 시행하는 경우 추가 비용이 있습니다. (문의: 접수처)
         </p>
 
      </div>
@@ -1055,7 +1052,7 @@
             <i class="fa-solid fa-phone" aria-hidden="true"></i> 종합검진 예약 전화하기
         </a>
         <button type="button" data-open-screening-sms
-                class="mt-2 w-full bg-white border border-orange-700 text-orange-800 hover:bg-orange-50 text-base font-semibold px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5">
+                class="mt-2 w-full bg-orange-50 border border-orange-700 text-orange-800 text-base font-semibold px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5">
             <i class="fa-solid fa-comment-sms" aria-hidden="true"></i> 종합검진 예약 문자 보내기
         </button>
     </div>
